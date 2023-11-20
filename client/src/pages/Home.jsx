@@ -1,7 +1,11 @@
-import React from "react";
+import homeImage from "../assets/home-page-background.jpg";
 
 const Home = () => {
-	return <div>Home</div>;
+	return (
+		<section>
+			<img src={homeImage} alt="" />
+		</section>
+	);
 };
 
 export default Home;
