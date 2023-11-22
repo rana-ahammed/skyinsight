@@ -14,7 +14,7 @@ const App = () => {
 				className="bg-gray-200 dark:bg-gray-800 w-full"
 			>
 				<Header />
-				<main className="min-h-[calc(100vh-132px)]">
+				<main className="min-h-[calc(100vh-124px)]">
 					<Outlet />
 				</main>
 				<Footer />

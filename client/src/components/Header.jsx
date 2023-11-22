@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "../assets/weather-app.png";
+import logo from "../assets/logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { LuMoon } from "react-icons/lu";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -42,7 +42,7 @@ const Header = () => {
 		<>
 			<header className="w-full bg-gray-300 dark:bg-slate-800 shadow-lg top-0 sticky">
 				{/* Tablet and Desktop Screens */}
-				<nav className="mx-auto w-full lg:w-3/4 flex items-center justify-between p-4">
+				<nav className="mx-auto w-full lg:w-3/4 flex items-center justify-between p-3">
 					<Link to="/">
 						<img
 							src={logo}
