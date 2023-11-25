@@ -39,14 +39,14 @@ const Home = () => {
 					autoComplete="off"
 					type="text"
 					placeholder="Enter City Name Here"
-					className="w-full lg:w-1/2 p-2 rounded-l-lg text-lg dark:bg-slate-700 font-semibold dark:text-gray-200 border-none outline-none"
+					className="w-full lg:w-1/2 p-2 rounded-l-lg text-sm md:text-lg dark:bg-slate-700 font-semibold dark:text-gray-200 border-none outline-none"
 				/>
 				<button
 					onClick={handleSubmit}
 					type="submit"
 					name=""
 					id=""
-					className="bg-green-300 hover:bg-green-400 p-2 rounded-r-lg text-lg font-semibold"
+					className="bg-green-300 hover:bg-green-400 p-2 rounded-r-lg text-sm md:text-lg font-semibold"
 				>
 					Search
 				</button>

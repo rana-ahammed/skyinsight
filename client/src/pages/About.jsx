@@ -53,7 +53,7 @@ const About = () => {
 					</section>
 				</div>
 				{/* Description Section */}
-				<div className="md:w-1/2 pt-5">
+				<div className="md:w-1/2 py-5">
 					<p className="font-semibold text-md text-gray-700 dark:text-gray-300 mx-auto w-3/4">
 						Hello, I am Rana Ahammed from Weathery. Welcome to
 						Weathery, your go-to destination for accurate and

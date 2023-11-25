@@ -5,10 +5,10 @@ const getWeatherData = (req, res) => {
 	console.log(city);
 	axios
 		.get(
-			`https://api.openweathermap.org/data/2.5/weather?q={city}&appid=${process.env.CURRENT_KEY}`
+			`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.CURRENT_KEY}`
 		)
-		.then((response) => console.log(response.data))
-		.catch((error) => console.log(error));
+		.then((response) => res.json(response.data))
+		.catch((error) => res.json(error));
 };
 
 export default getWeatherData;
