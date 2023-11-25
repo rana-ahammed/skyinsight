@@ -40,7 +40,7 @@ const Header = () => {
 	}, []);
 	return (
 		<>
-			<header className="w-full bg-gray-300 dark:bg-slate-800 shadow-lg top-0 sticky">
+			<header className="w-full bg-gray-300 dark:bg-slate-800 shadow-lg top-0 sticky z-50">
 				{/* Tablet and Desktop Screens */}
 				<nav className="mx-auto w-full lg:w-3/4 flex items-center justify-between p-3">
 					<Link to="/">
