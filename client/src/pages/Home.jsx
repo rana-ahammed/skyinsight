@@ -4,7 +4,6 @@ import axios from "axios";
 
 const Home = () => {
 	const [city, setCity] = useState("");
-	console.log(city);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const config = {
