@@ -1,7 +1,11 @@
 import express from "express";
-import getWeatherData from "../controllers/weatherController.js";
+import {
+	getCurrentWeatherData,
+	getHourlyWeatherData,
+} from "../controllers/weatherController.js";
 const router = express.Router();
 
-router.post("/weather", getWeatherData);
+router.post("/current", getCurrentWeatherData);
+router.post("/hourly", getHourlyWeatherData);
 
 export default router;
