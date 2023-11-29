@@ -28,7 +28,6 @@ const Home = () => {
 	const [current, setCurrent] = useState({});
 	const [hourly, setHourly] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
-	console.log(hourly.list);
 	const regionNamesInEnglish = new Intl.DisplayNames(["en"], {
 		type: "region",
 	});
