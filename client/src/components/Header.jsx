@@ -108,7 +108,7 @@ const Header = () => {
 
 			{/* Hamburger Menu For Mobile Screens */}
 			{isNavOpen && (
-				<section className="flex md:hidden bg-slate-300 dark:bg-gray-800 items-center p-3 gap-3 flex-col ml-auto w-full font-semibold text-lg text-black dark:text-white sticky top-[71px]">
+				<section className="flex md:hidden bg-slate-300 dark:bg-gray-800 items-center p-3 gap-3 flex-col ml-auto w-full font-semibold text-lg text-black dark:text-white sticky top-[64px]">
 					<NavLink
 						to="/"
 						className={({ isActive }) =>

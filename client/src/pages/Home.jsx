@@ -3,13 +3,32 @@ import bgImage from "../assets/sky.jpg";
 import axios from "axios";
 import toast from "react-hot-toast";
 import moment from "moment";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
+const responsive = {
+	desktop: {
+		breakpoint: { max: 3000, min: 1024 },
+		items: 3,
+		slidesToSlide: 3, // optional, default to 1.
+	},
+	tablet: {
+		breakpoint: { max: 1024, min: 426 },
+		items: 2,
+		slidesToSlide: 2, // optional, default to 1.
+	},
+	mobile: {
+		breakpoint: { max: 426, min: 0 },
+		items: 1,
+		slidesToSlide: 1, // optional, default to 1.
+	},
+};
 const Home = () => {
 	const [city, setCity] = useState("");
 	const [current, setCurrent] = useState({});
 	const [hourly, setHourly] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
-	console.log(current, hourly);
+	console.log(hourly.list);
 	const regionNamesInEnglish = new Intl.DisplayNames(["en"], {
 		type: "region",
 	});
@@ -51,6 +70,7 @@ const Home = () => {
 			)
 			.catch((error) => console.log(error));
 		setIsLoading(false);
+		setCity("");
 	};
 
 	return (
@@ -58,18 +78,20 @@ const Home = () => {
 			style={{
 				backgroundImage: `url(${bgImage})`,
 			}}
-			className="h-[calc(100vh-124px)] bg-cover relative"
+			className="min-h-[calc(100vh-124px)] bg-cover"
 		>
 			<form
 				action=""
-				className="w-3/4 md:w-1/2 top-20 absolute left-0 right-0 mx-auto flex items-center justify-center"
+				className="w-full md:w-1/2 top-20 py-10 px-3 left-0 right-0 mx-auto flex items-center justify-center"
 			>
 				<input
 					onChange={(e) => setCity(e.target.value)}
 					value={city}
 					autoComplete="off"
+					id="city"
+					name="name"
 					type="text"
-					placeholder="Enter City Name Here"
+					placeholder="Enter Only City Name Here"
 					className="w-full lg:w-1/2 p-2 rounded-l-lg text-sm md:text-lg dark:bg-slate-700 font-semibold dark:text-gray-200 border-none outline-none"
 				/>
 				<button
@@ -85,21 +107,26 @@ const Home = () => {
 			</form>
 			{/* Weather Details */}
 			{current.main && (
-				<div className="absolute top-40 left-0 right-0 mx-auto bg-transparent dark:bg-slate-700 shadow-xl w-3/4 md:w-1/2 lg:w-1/4 flex flex-col justify-center rounded-lg p-2 items-center gap-2">
-					<p className="text-3xl font-bold dark:text-gray-200">
-						{current.name}
+				<div className="top-40 left-0 right-0 mx-auto bg-slate-300 dark:bg-slate-700 shadow-xl w-3/4 md:w-1/2 lg:w-1/4 flex flex-col justify-center rounded-lg p-3 items-center gap-2">
+					<p className="text-md font-medium dark:text-gray-300">
+						<span className="text-xl font-bold">Local Time:</span>{" "}
+						{moment()
+							.utcOffset(current.timezone / 60)
+							.format("ddd, LT")}
 					</p>
 					<p className="font-light text-md dark:text-gray-200">
-						{regionNamesInEnglish.of(current.sys.country)}
+						<span className="text-xl md:text-3xl font-bold dark:text-gray-200">
+							{current.name}{" "}
+						</span>
+						({regionNamesInEnglish.of(current.sys.country)})
 					</p>
 
 					<p className="text-4xl font-bold dark:text-gray-300">
-						{Math.round(current.main.temp)}&deg;C
+						{Math.floor(current.main.temp)}&deg;C
 					</p>
 					<p className="text-2xl font-semibold dark:text-gray-300">
 						{current.weather[0].description}
 					</p>
-					<img src={`${current.weather[0].icon}.png`} alt="" />
 					<p className="text-lg font-medium dark:text-gray-300">
 						<span className="text-xl font-semibold">Sunrise:</span>{" "}
 						{moment
@@ -115,13 +142,52 @@ const Home = () => {
 							.format("LT")}
 					</p>
 					<p className="text-md font-medium dark:text-gray-300">
-						Min Temp: {Math.round(current.main.temp_min)}&deg;C
+						Min Temp: {Math.floor(current.main.temp_min)}&deg;C
 					</p>
 					<p className="text-md font-medium dark:text-gray-300">
-						Max Temp: {Math.round(current.main.temp_max)}&deg;C
+						Max Temp: {Math.floor(current.main.temp_max)}&deg;C
 					</p>
-					<p></p>
 				</div>
+			)}
+
+			{/* Forecast Details */}
+			{hourly.list && (
+				<Carousel
+					swipeable={false}
+					arrows="true"
+					draggable={false}
+					responsive={responsive}
+					ssr={true}
+					infinite={false}
+					autoPlay={false}
+					autoPlaySpeed={1000}
+					keyBoardControl={true}
+					customTransition="all .5"
+					transitionDuration={500}
+					containerClass="carousel-container"
+					dotListClass="custom-dot-list-style"
+					itemClass="carousel-item-padding-40-px"
+				>
+					{hourly.list.map((list, index) => (
+						<div
+							className="bg-slate-300 dark:text-gray-200 flex justify-center items-center flex-col dark:bg-slate-700 rounded-lg shadow-xl m-10 py-3 px-8"
+							key={index}
+						>
+							<p className="text-lg font-normal">
+								{moment
+									.utc(list.dt, "X")
+									.add(current.timezone, "seconds")
+									.format("ddd, LT")}
+							</p>
+							<p className="font-semibold text-4xl">
+								{Math.floor(list.main.temp)}&deg;C
+							</p>
+							<p className="font-bold mt-1 text-2xl">
+								{list.weather[0].description}
+							</p>
+						</div>
+					))}
+				</Carousel>
 			)}
 		</section>
 	);
