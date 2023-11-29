@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const corsOptions = {
-	origin: `${process.env.CLIENT_URL}`,
+	origin: process.env.CLIENT_URL,
 	credentials: true,
 };
 app.use(cors(corsOptions));
