@@ -12,7 +12,12 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors());
+app.use(
+	cors({
+		origin: process.env.REACT_APP_SERVER_URL,
+		credentials: true,
+	})
+);
 
 app.use("/", route);
 
