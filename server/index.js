@@ -11,24 +11,23 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
+const corsConfig = {
+	origin: process.env.CLIENT_URL,
+	credentials: true,
+	methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"],
+	allowedHeaders: [
+		"Content-Type",
+		"Origin",
+		"X-Requested-With",
+		"Accept",
+		"x-client-key",
+		"x-client-token",
+		"x-client-secret",
+		"Authorization",
+	],
+};
 
-app.use(
-	cors({
-		origin: process.env.REACT_APP_SERVER_URL,
-		credentials: true,
-		methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"],
-		allowedHeaders: [
-			"Content-Type",
-			"Origin",
-			"X-Requested-With",
-			"Accept",
-			"x-client-key",
-			"x-client-token",
-			"x-client-secret",
-			"Authorization",
-		],
-	})
-);
+app.use(cors(corsConfig));
 
 app.use("/", route);
 
