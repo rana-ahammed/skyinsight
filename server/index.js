@@ -16,6 +16,7 @@ app.use(
 	cors({
 		origin: process.env.REACT_APP_SERVER_URL,
 		credentials: true,
+		optionSuccessStatus: 200,
 	})
 );
 
