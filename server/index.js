@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
 	cors({
-		origin: process.env.REACT_APP_SERVER_URL,
+		"Access-Control-Allow-Origin": process.env.REACT_APP_SERVER_URL,
 		credentials: true,
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"],
 		allowedHeaders: [
