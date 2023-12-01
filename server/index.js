@@ -15,15 +15,16 @@ const corsOptions = {
 	origin: process.env.CLIENT_URL,
 	credentials: true,
 };
-app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
+
+app.use(cors(corsOptions));
+app.all("*", function (req, res) {
+	res.header("Access-Control-Allow-Origin", `${process.env.CLIENT_URL}`);
 	res.header(
 		"Access-Control-Allow-Headers",
-		"Origin, X-Requested-With, Content-Type, Accept"
+		"Content-Type,Content-Length, Authorization, Accept,X-Requested-With"
 	);
-	next();
+	res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
 });
-app.use(cors(corsOptions));
 
 app.use("/", route);
 
