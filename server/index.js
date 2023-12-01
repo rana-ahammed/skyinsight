@@ -11,21 +11,13 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
-const corsOptions = {
-	origin: process.env.CLIENT_URL,
-	credentials: true,
-	method: "GET, POST",
-};
 
-app.use(cors(corsOptions));
-// app.all("*", function (req, res) {
-// 	res.header("Access-Control-Allow-Origin", `${process.env.CLIENT_URL}`);
-// 	res.header(
-// 		"Access-Control-Allow-Headers",
-// 		"Content-Type,Content-Length, Authorization, Accept,X-Requested-With"
-// 	);
-// 	res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-// });
+app.use(cors());
+app.use(function (req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Methods", "GET, POST");
+	next();
+});
 
 app.use("/", route);
 
