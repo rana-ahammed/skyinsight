@@ -1,4 +1,3 @@
-import profilePic from "../assets/profile-image-circular.png";
 import { MdEmail } from "react-icons/md";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
@@ -14,7 +13,7 @@ const About = () => {
 				{/* Image Section */}
 				<div className="lg:order-2 md:w-1/2 p-5 shadow-xl w-3/4">
 					<img
-						src={profilePic}
+						src="https://i.postimg.cc/RVRjgR24/profile-image-circular.png"
 						alt="This Website developer"
 						className="w-40 h-40 mx-auto rounded-full"
 					/>
