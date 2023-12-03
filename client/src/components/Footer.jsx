@@ -14,6 +14,7 @@ const Footer = () => {
 					href="https://github.com/rana-ahammed"
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label="GitHub Profile Link"
 					className="hover:scale-110 dark:hover:text-green-500"
 				>
 					<FaSquareGithub />
@@ -22,6 +23,7 @@ const Footer = () => {
 					href="mailto:rana.ahammed.012@gmail.com"
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label="Email Address Link"
 					className="hover:scale-110 dark:hover:text-green-500"
 				>
 					<MdEmail />
@@ -30,6 +32,7 @@ const Footer = () => {
 					href="https://linkedin.com/in/rana-ahammed1"
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label="Linkedin Profile Link"
 					className="hover:scale-110 dark:hover:text-green-500"
 				>
 					<FaLinkedin />

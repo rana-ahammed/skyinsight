@@ -95,6 +95,7 @@ const Header = () => {
 					{/* Hamburger Icon For Mobile Screens*/}
 					<button
 						className="md:hidden"
+						aria-label="hamburger-menu"
 						onClick={() => setIsNavOpen((prev) => !prev)}
 					>
 						{isNavOpen ? (
