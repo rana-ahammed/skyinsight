@@ -33,7 +33,7 @@ const Contact = () => {
 			<form
 				action="https://formsubmit.co/rana.ahammed.012@gmail.com	"
 				method="POST"
-				className="flex flex-col w-full md:w-1/2 p-4 mt-10 md:mt-0"
+				className="flex flex-col w-full lg:w-1/2 p-4 mt-10 md:mt-0"
 			>
 				<label
 					htmlFor="name"
