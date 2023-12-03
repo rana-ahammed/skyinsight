@@ -5,7 +5,7 @@ import { MdEmail } from "react-icons/md";
 
 const Contact = () => {
 	return (
-		<section className="w-full md:w-3/4 mx-auto md:flex md:justify-center md:items-center md:p-16">
+		<section className="w-full lg:w-3/4 mx-auto md:flex md:justify-center md:items-center md:p-16">
 			{/* Left Section */}
 			<div className="w-full lg:w-1/2 flex flex-col items-center gap-3 mt-10 md:mt-0">
 				<p className="text-3xl font-normal text-black dark:text-white">
