@@ -31,5 +31,35 @@
 	"display": "standalone",
 	"theme_color": "#000000",
 	"background_color": "#ffffff",
-	"description": "Weathery is a weather forecast app. Stay updated with weathery"
+	"description": "Weathery is a weather forecast app. Stay updated with weathery",
+	"screenshots": [
+		{
+			"src": "weathery-home-desktop-dark.png",
+			"sizes": "3264x1836",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Homescreen of Weathery"
+		},
+		{
+			"src": "weathery-home-desktop-light.png",
+			"sizes": "3264x1836",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Homescreen of Weathery"
+		},
+		{
+			"src": "weathery-home-mobile-dark.png",
+			"sizes": "850x1594",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "Homescreen of Weathery"
+		},
+		{
+			"src": "weathery-home-mobile-light.png",
+			"sizes": "850x1594",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "Homescreen of Weathery"
+		}
+	]
 }
