@@ -1,4 +1,4 @@
-# Weathery is a weather forecast website
+# Skyinsight is a weather forecast website
 
 ## Features of this website
 
