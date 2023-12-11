@@ -1,3 +1,5 @@
+# Weathery is a weather forecast website
+
 ## Features of this website
 
 1. Current Conditions, 
